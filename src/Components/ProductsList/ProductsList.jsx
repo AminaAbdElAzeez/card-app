@@ -43,7 +43,10 @@ function ProductsList() {
               />
             }
           >
-            <Meta title={product.title} style={{ marginBottom: 10 }} />
+            <Meta
+              title={product.title.slice(0, 17)}
+              style={{ marginBottom: 10 }}
+            />
             <Meta
               description={product.description.slice(0, 160)}
               style={{ textAlign: "left", fontSize: 13, marginBottom: "10px" }}

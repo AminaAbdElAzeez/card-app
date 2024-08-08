@@ -34,15 +34,17 @@ function ProductsDetails() {
           styles={{
             body: {
               padding: "30px 30px",
+              whiteSpace: "wrap",
             },
           }}
           style={{
             width: "90%",
             margin: "0px auto 40px auto",
             padding: "30px 20px",
+            whiteSpace: "wrap",
           }}
         >
-          <Flex justify="center" wrap>
+          <Flex justify="center" wrap vertical align="center">
             <Image
               alt={products.description}
               src={products.image}
