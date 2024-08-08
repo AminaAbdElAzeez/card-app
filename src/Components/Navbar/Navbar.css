@@ -1,0 +1,31 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #001529;
+  padding: 17px 50px;
+  margin-bottom: 40px;
+}
+.logo {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 700;
+  width: 10%;
+}
+nav {
+  width: 90%;
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav ul li {
+  margin-right: 20px;
+}
+header a {
+  color: #fff;
+  font-size: 17px;
+  text-decoration: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
