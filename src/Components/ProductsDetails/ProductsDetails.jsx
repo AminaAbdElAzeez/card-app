@@ -40,7 +40,6 @@ function ProductsDetails() {
           style={{
             width: "90%",
             margin: "0px auto 40px auto",
-            padding: "30px 20px",
             whiteSpace: "wrap",
           }}
         >
