@@ -15,7 +15,13 @@ function ProductsList() {
   }, []);
 
   return (
-    <Flex gap="middle" align="start" justify="center" wrap>
+    <Flex
+      gap="middle"
+      align="start"
+      justify="center"
+      wrap
+      style={{ marginBottom: "30px" }}
+    >
       {products.map((product) => {
         return (
           <Card

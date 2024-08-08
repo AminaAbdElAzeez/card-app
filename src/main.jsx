@@ -7,12 +7,13 @@ import React from "react";
 import { LazyLoading } from "./Components/LazyLoading/LazyLoading.jsx";
 import ProductsDetails from "./Components/ProductsDetails/ProductsDetails.jsx";
 import Root from "./routes/Root.jsx";
+import NotFound from "./routes/NotFound.jsx";
 
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <div>error</div>,
+    errorElement: <NotFound />,
     children: [
       {
         index: true,
