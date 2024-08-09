@@ -33,8 +33,9 @@ function ProductsDetails() {
           hoverable
           styles={{
             body: {
-              padding: "30px 30px",
-              whiteSpace: "wrap",
+              padding: "30px 20px",
+              width: "90%",
+              margin: "0px auto",
             },
           }}
           style={{
@@ -46,19 +47,18 @@ function ProductsDetails() {
             <Image
               alt={products.description}
               src={products.image}
-              style={{ width: "200px", padding: "15px" }}
+              style={{ width: "190px", padding: "15px" }}
             />
             <Flex vertical align="center" justify="center">
               <Meta
                 title={products.title}
                 style={{
                   margin: "15px 0px",
-                  whiteSpace: "wrap",
                 }}
               />
               <Meta
                 description={products.description}
-                style={{ marginBottom: "15px", whiteSpace: "wrap" }}
+                style={{ marginBottom: "15px" }}
               />
               <Tag
                 color="#cd201f"

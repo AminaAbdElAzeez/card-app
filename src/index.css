@@ -6,3 +6,6 @@
 ul {
   list-style: none;
 }
+.ant-card-meta-title {
+  white-space: wrap !important;
+}
