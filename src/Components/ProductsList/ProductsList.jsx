@@ -38,7 +38,7 @@ function ProductsList() {
                 alt={product.description}
                 src={product.image}
                 style={{
-                  height: 195,
+                  height: 200,
                 }}
               />
             }

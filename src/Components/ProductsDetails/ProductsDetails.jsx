@@ -10,12 +10,12 @@ function ProductsDetails() {
   const { productId } = useParams();
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${productId}`)
+    fetch(`https://fakestoreapi.com/products`)
       .then((res) => res.json())
       .then((json) => setProducts(json));
   }, [productId]);
 
-  //   const product = products.find((b) => b.id === +productId);
+  const product = products.find((b) => b.id === +productId);
 
   useEffect(() => {
     setLoading(true);
@@ -28,7 +28,7 @@ function ProductsDetails() {
     <>
       {loading ? (
         <SkeletonComponent />
-      ) : products ? (
+      ) : product ? (
         <Card
           hoverable
           styles={{
@@ -45,19 +45,19 @@ function ProductsDetails() {
         >
           <Flex justify="center" wrap vertical align="center">
             <Image
-              alt={products.description}
-              src={products.image}
+              alt={product.description}
+              src={product.image}
               style={{ width: "190px", padding: "15px" }}
             />
             <Flex vertical align="center" justify="center">
               <Meta
-                title={products.title}
+                title={product.title}
                 style={{
                   margin: "15px 0px",
                 }}
               />
               <Meta
-                description={products.description}
+                description={product.description}
                 style={{ marginBottom: "15px" }}
               />
               <Tag
@@ -68,7 +68,7 @@ function ProductsDetails() {
                   fontSize: "16px",
                 }}
               >
-                ${products.price}
+                ${product.price}
               </Tag>
               <Tag
                 color="red"
@@ -78,7 +78,7 @@ function ProductsDetails() {
                   fontSize: "16px",
                 }}
               >
-                {products.category}
+                {product.category}
               </Tag>
             </Flex>
           </Flex>
