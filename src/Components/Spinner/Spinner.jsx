@@ -13,7 +13,7 @@ const Spinner = () => {
       style={{
         justifyContent: "center",
         alignItems: "center",
-        height: "100vh",
+        marginTop: "30px",
       }}
     >
       <Spin tip="Loading" size="large">
