@@ -8,7 +8,7 @@ const { Meta } = Card;
 
 function ProductsList() {
   const [products, setProducts] = useState([]);
-  const [noData, setNoData] = useState(false);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -16,26 +16,35 @@ function ProductsList() {
       .then((json) => setProducts(json));
   }, []);
 
-  useEffect(() => {
-    setNoData(true);
-    setTimeout(() => {
-      setNoData(false);
-    }, 1500);
-  }, []);
+  const filteredProducts = products.filter((product) =>
+    product.title.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
-    <Flex
-      gap="middle"
-      align="start"
-      justify="center"
-      wrap
-      style={{ marginBottom: "30px" }}
-    >
-      {noData ? (
-        <NoData />
-      ) : (
-        products.map((product) => {
-          return (
+    <>
+      <input
+        type="search"
+        onChange={(e) => setSearch(e.target.value)}
+        placeholder="Search in Products..."
+        style={{
+          width: "90%",
+          padding: "15px",
+          display: "block",
+          margin: "0px auto 30px auto",
+          borderRadius: "10px",
+        }}
+      />
+      <Flex
+        gap="middle"
+        align="start"
+        justify="center"
+        wrap
+        style={{ marginBottom: "30px" }}
+      >
+        {search && filteredProducts.length === 0 ? (
+          <NoData />
+        ) : (
+          filteredProducts.map((product) => (
             <Card
               key={product.id}
               hoverable
@@ -75,10 +84,10 @@ function ProductsList() {
                 <DoubleRightOutlined style={{ marginLeft: "4px" }} />
               </Link>
             </Card>
-          );
-        })
-      )}
-    </Flex>
+          ))
+        )}
+      </Flex>
+    </>
   );
 }
 
