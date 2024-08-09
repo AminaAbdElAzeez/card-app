@@ -10,19 +10,16 @@ function ProductsDetails() {
   const { productId } = useParams();
 
   useEffect(() => {
+    setLoading(true);
     fetch(`https://fakestoreapi.com/products`)
       .then((res) => res.json())
-      .then((json) => setProducts(json));
+      .then((json) => {
+        setProducts(json);
+        setLoading(false);
+      });
   }, [productId]);
 
   const product = products.find((b) => b.id === +productId);
-
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1500);
-  }, []);
 
   return (
     <>

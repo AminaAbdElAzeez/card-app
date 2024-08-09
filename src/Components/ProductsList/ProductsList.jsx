@@ -4,16 +4,22 @@ import { Card, Flex, Image, Tag } from "antd";
 import { Link } from "react-router-dom";
 import { DoubleRightOutlined } from "@ant-design/icons";
 import NoData from "../NoData/NoData";
+import Spinner from "../Spinner/Spinner";
 const { Meta } = Card;
 
 function ProductsList() {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
-      .then((json) => setProducts(json));
+      .then((json) => {
+        setProducts(json);
+        setLoading(false);
+      });
   }, []);
 
   const filteredProducts = products.filter((product) =>
@@ -41,7 +47,9 @@ function ProductsList() {
         wrap
         style={{ marginBottom: "30px" }}
       >
-        {search && filteredProducts.length === 0 ? (
+        {loading ? (
+          <Spinner />
+        ) : search && filteredProducts.length === 0 ? (
           <NoData />
         ) : (
           filteredProducts.map((product) => (
