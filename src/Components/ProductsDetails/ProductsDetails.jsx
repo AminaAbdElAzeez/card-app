@@ -17,7 +17,7 @@ function ProductsDetails() {
         setProducts(json);
         setLoading(false);
       });
-  }, [productId]);
+  }, []);
 
   const product = products.find((b) => b.id === +productId);
 
